@@ -36,7 +36,7 @@ export function AddMovie() {
         />
         <TextField
         className="add-movie-name"
-        label="Poster"
+        label="Pic"
         type="text"
         value={pic}
         onChange={event => setPic(event.target.value)}
