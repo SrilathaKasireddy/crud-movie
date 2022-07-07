@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import {useFormik} from "formik";
 import * as yup from "yup";
+import { Card } from "@mui/material";
 
 
 
@@ -95,70 +96,81 @@ export function EditMovie() {
       ).then(()=>navigate("/movies"))
     }
     return (
-      <form onSubmit={handleSubmit} 
-      className="formSection">
-        
-        <TextField 
-        error={touched.namee && errors.namee}
-        variant="outlined"
-        label="Name" 
-         
+      <Card sx={{backgroundColor:"#D9D1D1",width:600,alignItems:"center",
+      textAlign:"center",justifyContent:"center",marginTop:2,marginLeft:50,height:600,
+      objectFit:"cover"}}>
+    <form  onSubmit={handleSubmit}  style={{alignItems:"center",textAlign:"center",padding:10,color:"black"}}>
+      
+      <TextField 
+       
+      error={touched.namee && errors.namee}
+      label="Name"
+       variant="outlined"
          name="namee" 
          value={values.namee} 
          onChange={handleChange} 
-         onBlur = {handleBlur}  
-         id="filled-error-helper-text"
-         helperText={touched.namee && errors.namee}/>
-       
-        <TextField  
-        error={touched.imgg && errors.imgg}
-         label="Poster" 
-         variant="outlined" 
+         onBlur = {handleBlur}
+         style={{padding:10,width:500}}
+          
+           helperText={touched.namee && errors.namee}/>
+      {/* {touched.namee && errors.namee} */}
+
+      
+
+
+      <TextField
+      error={touched.imgg && errors.imgg}
+     
+       label="Poster"
+        variant="outlined"
          name="imgg" 
-         value={values.imgg} 
-        onChange={handleChange} 
-        onBlur = {handleBlur}  
-        id="filled-error-helper-text" 
-        helperText={touched.imgg && errors.imgg}/>
-        
-        <TextField 
-        error={touched.ratingg && errors.ratingg}
-        label="Rating" 
-        
-        variant="outlined"
-        
-         className="rating" 
-          name="ratingg" 
-          value={values.ratingg} 
+         value={values.imgg}
           onChange={handleChange}
-           onBlur = {handleBlur}  
-           id="filled-error-helper-text" helperText={touched.ratingg && errors.ratingg}/>
-       
-        <TextField 
-        error={touched.contentt && errors.contentt}
-         label="Summary" 
-         variant="outlined" 
-         
-         name="contentt"
-          value={values.contentt} 
+        onBlur = {handleBlur} 
+        style={{padding:10,width:500}}
+        helperText={touched.imgg && errors.imgg}/>
+      {/* {touched.imgg && errors.imgg} */}
+      <TextField
+      error={touched.ratingg && errors.ratingg}
+      
+       label="Rating"
+        variant="outlined" 
+        className="rating input" 
+         name="ratingg" 
+         value={values.ratingg}
           onChange={handleChange} 
-          onBlur = {handleBlur}  
-          id="filled-error-helper-text"
-           helperText={touched.contentt && errors.contentt} />
-        
-        <TextField  
-        error={touched.trailerr && errors.trailerr}
-        label="Trailer" 
-        variant="outlined"
-         className="trailer"
-          name="trailerr" 
-          value={values.trailerr}
-           onChange={handleChange} 
-           onBlur = {handleBlur}  
-           id="filled-error-helper-text"
-            helperText={touched.trailerr && errors.trailerr}/>
-        {/* {touched.trailerr && errors.trailerr}  */}
+          onBlur = {handleBlur} 
+         style={{padding:10,width:500}}
+          helperText={touched.ratingg && errors.ratingg}/>
+      
+      <TextField 
+      error={touched.contentt && errors.contentt}
+      
+      label="Summary" 
+      variant="outlined"
+       className="summary input"
+        name="contentt" 
+      value={values.contentt}
+       onChange={handleChange}
+        onBlur = {handleBlur} 
+      style={{padding:10,width:500}}
+       helperText={touched.contentt && errors.contentt} />
+      
+      <TextField 
+      error={touched.trailerr && errors.trailerr}
+      
+      label="Trailer"
+       variant="outlined" 
+       className="trailer input" 
+       name="trailerr" 
+      value={values.trailerr} 
+      onChange={handleChange} 
+      onBlur = {handleBlur} 
+      style={{padding:10,width:500}}
+       helperText={touched.trailerr && errors.trailerr}/>
+      
         <Button  type="submit">SAVE</Button>
       </form>
+      </Card>
     );
   }

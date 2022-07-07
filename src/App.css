@@ -6,6 +6,12 @@
   
   
 }
+.home{
+  text-align: center;
+  justify-content: center;
+  align-items:center;
+  
+}
 
 .formSection{
   display: flex;
@@ -121,4 +127,11 @@ span{
 
   cursor:pointer;
   max-width:800px
+}
+
+.card{
+  display: flex;
+  flex-wrap:wrap;
+  object-fit: cover;
+
 }

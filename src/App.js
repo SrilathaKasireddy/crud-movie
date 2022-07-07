@@ -151,12 +151,17 @@ function App() {
           <AppBar position="static">
             <Toolbar className="toolBar">
               <div>
-                <Button color="inherit" onClick = {()=> navigate("/")}>Home</Button>
+                <Button color="inherit" onClick = {()=>
+                   navigate("/")}>Home</Button>
                 
-                <Button color="inherit" onClick = {()=> navigate("/movies")}>Movies</Button>
-                <Button color="inherit" onClick = {()=> navigate("/addmovies")}>Add Movies</Button>
-                <Button color="inherit" onClick = {()=> navigate("/addcolor")}>Color Game</Button>
-                <Button color="inherit" onClick = {()=> navigate("/tictactoe")}>TicTacToe</Button>
+                <Button color="inherit" onClick = {()=>
+                   navigate("/movies")}>Movies</Button>
+                <Button color="inherit" onClick = {()=> 
+                  navigate("/addmovies")}>Add Movies</Button>
+                <Button color="inherit" onClick = {()=>
+                   navigate("/addcolor")}>Color Game</Button>
+                <Button color="inherit" onClick = {()=>
+                   navigate("/tictactoe")}>TicTacToe</Button>
               </div>
               <div>
                 <Button color="inherit" className="modeButton" onClick = {()=> 
@@ -173,13 +178,16 @@ function App() {
             <Route path="/" element={<Home />} />
             
             
-            <Route path="/movies" element={<Movies />} />
-            <Route path="/addmovies"element={<MovieAdditionForm />}/>
+            <Route path="/movies" 
+            element={<Movies />} />
+            <Route path="/addmovies"
+            element={<MovieAdditionForm />}/>
             <Route path="/addcolor" element={<AddColor />} />
             <Route path="/tictactoe" element={<TicTacToe/>} />
             <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/movies/edit/:id" element={<EditMovie />} />
+            <Route path="/movies/edit/:id" 
+            element={<EditMovie />} />
             <Route path="/basicform" element={<BasicForm />} />
           </Routes>
         </div>
@@ -192,7 +200,7 @@ function NotFound(){
   return <h1>404 not found</h1>
 }
 function Home(){
-  return <h1>Welcome to the movie app🎉🎉🎉🎉🎉</h1>
+  return <h1 className='home'>Welcome to the movie app🎉🎉🎉🎉🎉</h1>
 }
 
 

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import { flexbox } from "@mui/system";
+import { Card } from "@mui/material";
 
 const formValidationSchema = yup.object({
   namee : yup.string().required("Please add name"),
@@ -40,7 +41,8 @@ export function AddMovie() {
   })
 
   const AddMovie =() => {
-    fetch("https://618fb4edf6bf450017484a11.mockapi.io/movies", {
+    fetch(
+  "https://618fb4edf6bf450017484a11.mockapi.io/movies", {
     method: "POST",
     body: JSON.stringify(values),
     headers: {
@@ -50,14 +52,15 @@ export function AddMovie() {
   .then(() => navigate("/Movies"));
   };
   return (
+    <Card >
     <form onSubmit={handleSubmit} 
-    className="formSection">
+    className="formSection" >
       
       <TextField 
       error={touched.namee && errors.namee}
       variant="outlined"
       label="Name" 
-       
+      
        name="namee" 
        value={values.namee} 
        onChange={handleChange} 
@@ -115,6 +118,7 @@ export function AddMovie() {
       {/* {touched.trailerr && errors.trailerr}  */}
       <Button className="addmovie" type="submit">Add Movie</Button>
     </form>
+    </Card>
   );
 }
 }
