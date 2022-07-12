@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import {useFormik} from "formik";
 import * as yup from "yup";
 import { Card } from "@mui/material";
+import { API } from "./global";
 
 
 const formValidationSchema = yup.object({
@@ -49,7 +50,7 @@ export function MovieAdditionForm() {
   // };
 
   function AddMovieAPI(newMovie){
-    fetch("https://618fb4edf6bf450017484a11.mockapi.io/movies",
+    fetch(`${API}/movies`,
       {method:"POST",
       body : JSON.stringify(newMovie),
       headers : {"Content-Type":"application/json"}

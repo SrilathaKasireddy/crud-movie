@@ -7,6 +7,7 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import { flexbox } from "@mui/system";
 import { Card } from "@mui/material";
+import { API } from "./global";
 
 const formValidationSchema = yup.object({
   namee : yup.string().required("Please add name"),
@@ -42,7 +43,7 @@ export function AddMovie() {
 
   const AddMovie =() => {
     fetch(
-  "https://618fb4edf6bf450017484a11.mockapi.io/movies", {
+  `${API}/movies`, {
     method: "POST",
     body: JSON.stringify(values),
     headers: {

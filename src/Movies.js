@@ -1,12 +1,13 @@
 import { useEffect ,useState} from 'react';
 import { MovieCard } from './MovieCard';
+import { API } from './global';
 
 export function Movies() {
   
   const[movieInfo,setmovieInfo]=useState([]);
 
   function getMovieAPI(){
-    fetch("https://618fb4edf6bf450017484a11.mockapi.io/movies")
+    fetch(`${API}/movies`)
     .then((data)=>data.json())
     .then((mvs)=>setmovieInfo(mvs));
   }

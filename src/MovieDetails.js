@@ -2,7 +2,7 @@ import { useParams, useNavigate} from "react-router-dom";
 import { useEffect ,useState} from 'react';
 import Button from '@mui/material/Button';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-
+import {API} from "./global"
 export function MovieDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export function MovieDetails() {
   const[movie,setMovie]=useState({});
 
   function getSingleMovieAPI(){
-    fetch(`https://618fb4edf6bf450017484a11.mockapi.io/movies/${id}`)
+    fetch(`${API}/movies/${id}`)
     .then((data)=>data.json())
     .then((mv)=>setMovie(mv));
   }

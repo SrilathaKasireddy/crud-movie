@@ -11,6 +11,7 @@ import CardActions from '@mui/material/CardActions';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Paper } from "@mui/material";
+import { API} from "./global"
 
 
 
@@ -75,7 +76,7 @@ export function MovieCard({ img, name, rating, content, id, getMovieAPI }) {
             
             className = "deleteIcon"
             color = "primary" onClick = {()=> {
-              fetch(`https://618fb4edf6bf450017484a11.mockapi.io/movies/${id}`,{method:"DELETE"})
+              fetch(`${API}/movies/${id}`,{method:"DELETE"})
               .then(()=>getMovieAPI());
           }}>
             <DeleteIcon  />
