@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import {useFormik} from "formik";
 import * as yup from "yup";
 import { Card } from "@mui/material";
+import { API } from "./global";
 
 
 
@@ -25,7 +26,7 @@ export function EditMovie() {
   const { id } = useParams();
   
   function getMovieAPI(){
-    fetch(`https://618fb4edf6bf450017484a11.mockapi.io/movies/${id}`)
+    fetch(`${API}/movies/${id}`)
     .then((data)=>data.json())
     .then((mvs)=>setMovie(mvs));
   }
@@ -87,7 +88,7 @@ export function EditMovie() {
     const navigate = useNavigate();
 
     function editMovieAPI(movie,values){
-      fetch(`https://618fb4edf6bf450017484a11.mockapi.io/movies/${movie.id}`,
+      fetch(`${API}/movies/${movie.id}`,
         {
           method:"PUT",
           body : JSON.stringify(values),
