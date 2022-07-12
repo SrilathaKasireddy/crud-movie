@@ -74,6 +74,7 @@ export function MovieCard({ img, name, rating, content, id, getMovieAPI }) {
           </IconButton>
           <IconButton 
             aria-label="Movie Delete"
+            style={{marginLeft:"auto"}}
             
             className = "deleteIcon"
             color = "primary" onClick = {()=> {
