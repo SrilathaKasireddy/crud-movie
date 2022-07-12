@@ -19,8 +19,12 @@ export function Movies() {
   return (
     <div className="movieList">
       {movieInfo.map((value, index) => {
-        return <MovieCard key={value.id} id={value.id} img={value.imgg} name={value.namee} rating={value.ratingg} 
-                          content={value.contentt} mveinf={movieInfo} setmovieInfo={setmovieInfo} getMovieAPI = {getMovieAPI} />;
+        return <MovieCard key={value._id} id={value._id} 
+        img={value.imgg} name={value.namee} rating={value.ratingg} 
+                          content={value.contentt} 
+                          mveinf={movieInfo} 
+                          setmovieInfo={setmovieInfo} 
+                          getMovieAPI = {getMovieAPI} />;
       })}
     </div>
   );

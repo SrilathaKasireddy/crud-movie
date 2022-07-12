@@ -96,7 +96,7 @@ export function EditMovie() {
       ).then(()=>navigate("/movies"))
     }
     return (
-      <Card sx={{backgroundColor:"#D9D1D1",width:600,alignItems:"center",
+      <Card sx={{width:600,alignItems:"center",
       textAlign:"center",justifyContent:"center",marginTop:2,marginLeft:50,height:600,
       objectFit:"cover"}}>
     <form  onSubmit={handleSubmit}  style={{alignItems:"center",textAlign:"center",padding:10,color:"black"}}>
@@ -105,6 +105,7 @@ export function EditMovie() {
        
       error={touched.namee && errors.namee}
       label="Name"
+      
        variant="outlined"
          name="namee" 
          value={values.namee} 

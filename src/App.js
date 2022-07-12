@@ -200,7 +200,7 @@ function NotFound(){
   return <h1>404 not found</h1>
 }
 function Home(){
-  return <h1 className='home'>Welcome to the movie app🎉🎉🎉🎉🎉</h1>
+  return <h1  className='home'>Welcome to the movie app🎉🎉🎉🎉🎉</h1>
 }
 
 
