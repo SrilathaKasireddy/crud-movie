@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -24,7 +24,7 @@ export function MovieAdditionForm() {
     initialValues : {
                       namee: "",
                       imgg: "",
-                      ratingg: "",
+                      ratingg:"",
                       contentt: "",
                       trailerr: ""
                     },
@@ -61,7 +61,7 @@ export function MovieAdditionForm() {
   }
 
   // useEffect(()=>{
-  //   addMovieAPI();
+  //   AddMovieAPI();
   // },[]);
 
 return(
