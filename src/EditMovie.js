@@ -88,7 +88,7 @@ export function EditMovie() {
     const navigate = useNavigate();
 
     function editMovieAPI(movie,values){
-      fetch(`${API}/movies/${movie.id}`,
+      fetch(`${API}/movies/${movie._id}`,
         {
           method:"PUT",
           body : JSON.stringify(values),

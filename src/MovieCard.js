@@ -18,7 +18,8 @@ import { API} from "./global"
 
 
 
-export function MovieCard({ img, name, rating, content, id, getMovieAPI }) {
+
+export function MovieCard({ img, name, rating, content, _id, getMovieAPI ,value}) {
   const styles = {
     color: rating > 8 ? "green" : "red"
   };
@@ -41,7 +42,7 @@ export function MovieCard({ img, name, rating, content, id, getMovieAPI }) {
               className = "infoIcon"
               color = "primary" 
               onClick={() => {
-                navigate(`/movies/${id}`);
+                navigate(`/movies/${value._id}`);
               }} >
               <InfoIcon />
             </IconButton>
@@ -67,9 +68,8 @@ export function MovieCard({ img, name, rating, content, id, getMovieAPI }) {
             aria-label="Movie Edit"
             style={{marginLeft:"auto"}}
             className = "editIcon"
-            color = "primary" onClick = {()=> {
-              navigate(`/movies/edit/${id}`)
-          }}>
+            color = "primary" onClick = {()=> 
+              navigate(`/movies/edit/${value._id}`)}>
             <EditIcon  />
           </IconButton>
           <IconButton 
@@ -78,7 +78,7 @@ export function MovieCard({ img, name, rating, content, id, getMovieAPI }) {
             
             className = "deleteIcon"
             color = "primary" onClick = {()=> {
-              fetch(`${API}/movies/${id}`,
+              navigate(`${API}/movies/${value._id}`,
               {method:"DELETE"})
               .then(()=>getMovieAPI());
           }}>
