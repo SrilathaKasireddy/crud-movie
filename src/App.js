@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+
 import {createContext, useState} from "react";
 import {AddColor} from "./AddColor";
 import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
@@ -16,6 +17,19 @@ import { TicTacToe } from './TicTacToe';
 import { Movies } from './Movies';
 import { EditMovie } from './EditMovie';
 import { BasicForm } from './Basicform';
+import SimpleImageSlider from "react-simple-image-slider";
+import { Register } from "./components/Register";
+import { ForgetPassword } from './components/ForgetPassword';
+import { ChangePassword } from "./components/ChangePassword";
+import { PasswordUpdated } from "./components/PasswordUpdated";
+import Login from "./components/Login";
+
+const images = [
+  { url: "https://www.koimoi.com/wp-content/new-galleries/2022/01/netflix-shelves-bahubali-before-the-beginning-worth-150-crores-002.jpg" },
+  { url: "https://images.indianexpress.com/2021/10/suriya.jpg" },
+  
+];
+
 const mveinf=
 [
   {
@@ -142,6 +156,19 @@ function App() {
   
   const[movieInfo,setmovieInfo]=useState(mveinf);
   const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const parseJwt = (token) => {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      return null;
+    }
+  };
+  console.log(token)
+  if (token)
+    var Username = parseJwt(token).UserName
+   
+    
   
   return (
     <ThemeProvider theme={theme}>
@@ -152,43 +179,53 @@ function App() {
             <Toolbar className="toolBar">
               <div>
                 <Button color="inherit" onClick = {()=>
-                   navigate("/")}>Home</Button>
+                   navigate("/home")}>Home</Button>
                 
                 <Button color="inherit" onClick = {()=>
                    navigate("/movies")}>Movies</Button>
                 <Button color="inherit" onClick = {()=> 
                   navigate("/addmovies")}>Add Movies</Button>
-                <Button color="inherit" onClick = {()=>
-                   navigate("/addcolor")}>Color Game</Button>
+                {/* <Button color="inherit" onClick = {()=>
+                   navigate("/addcolor")}>Color Game</Button> */}
                 <Button color="inherit" onClick = {()=>
                    navigate("/tictactoe")}>TicTacToe</Button>
               </div>
-              <div>
-                <Button style={{marginLeft:"auto"}} color="inherit" className="modeButton" onClick = {()=> 
+              <div >
+                <Button 
+                 color="inherit" 
+                 className="modeButton" onClick = {()=> 
                   setMode(mode==="light" ? "dark" : "light")
                   }>{mode==="light" ? <Brightness4Icon/> : <Brightness7Icon/>}&nbsp;&nbsp;
                     {mode==="light" ? "Dark Mode" : "Light Mode"}
                 </Button>
+               
+                
+
               </div>
             </Toolbar>
           </AppBar>
               
           <Routes>
            
-            <Route path="/" element={<Home />} />
+            <Route path="/Home" element={<Home />} />
             
             
             <Route path="/movies" 
             element={<Movies />} />
             <Route path="/addmovies"
             element={<MovieAdditionForm />}/>
-            <Route path="/addcolor" element={<AddColor />} />
+            {/* <Route path="/addcolor" element={<AddColor />} /> */}
             <Route path="/tictactoe" element={<TicTacToe/>} />
             <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/movies/edit/:id" 
             element={<EditMovie />} />
             <Route path="/basicform" element={<BasicForm />} />
+            <Route path="/Register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/ForgetPassword" element={<ForgetPassword />} />
+        <Route path="/PasswordUpdated" element={<PasswordUpdated />} />
+        <Route path="/reset-password/:id/:token" element={<ChangePassword />} />
           </Routes>
         </div>
         </Paper>
@@ -199,13 +236,58 @@ function App() {
 function NotFound(){
   return <h1>404 not found</h1>
 }
-function Home(){
-  return <h1  className='home'>Welcome to the movie app🎉🎉🎉🎉🎉</h1>
-}
-
 
 
 
 export {App};
 
+
+
+
+
+
+export function Home(){
+
+  
+
+  const [sliderOptions, setSliderOptions] = useState({
+    useGPURender: true,
+    showNavs: true,
+    showBullets:true,
+    loop: true,
+    autoPlay: true,
+    autoPlayDelay: 2,
+    startIndex: 3,
+    navStyle: 1,
+    navSize: 50,
+    navMargin: 30,
+    duration: 0.5,
+    bgColor: '#000'
+  });
+   
+    return (
+      <div style={{ Width:"90%",
+      height:"100%",margin:30,objectFit:"contain"}} >
+      <SimpleImageSlider
+     
+        width={1400} 
+        loop={sliderOptions.loop}
+        showBullets={sliderOptions.showBullets}
+        autoPlay={sliderOptions.autoPlay}
+        autoPlayDelay={sliderOptions.autoPlayDelay}
+        startIndex={sliderOptions.startIndex}
+        useGPURender={sliderOptions.useGPURender}
+        navStyle={sliderOptions.navStyle}
+        navSize={sliderOptions.navSize}
+        navMargin={sliderOptions.navMargin}
+        slideDuration={sliderOptions.duration}
+        
+        height={504}
+        images={images}
+        
+      />
+    </div>
+        
+    );
+};
 

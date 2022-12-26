@@ -119,6 +119,10 @@ span{
   display: flex;
   flex-wrap: wrap;
 }
+.movieImage:hover{
+
+  transform: scale(1.2)
+}
 
 .board{
   background-color:"orange";

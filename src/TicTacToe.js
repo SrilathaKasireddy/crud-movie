@@ -2,14 +2,14 @@ import { Button } from "@mui/material";
 import { useState } from "react"
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
-import useSound from 'use-sound';
+// import useSound from 'use-sound';
 
 import boopSfx from './cheer.mp3';
 export function TicTacToe(){
   
  return(
 
-<div>
+<div style={{alignItems:"center",justifyContent:"center",margin:"auto"}}>
  <h1>Fun Game</h1>
  <Board/>
 
@@ -65,22 +65,23 @@ setIsXturn(!isXturn);
 
 
   
- const [play] = useSound(boopSfx);
+//  const [play] = useSound(boopSfx);
  return (
   <div className="board"  >
    {board.map((value,index)=>(
-   <Gamebox value={value}  onPlayerClick={()=>handleClick(index)}/>
+   <Gamebox value={value}  
+   onPlayerClick={()=>handleClick(index)}/>
    ))}
   
   {winner?<h2>Winner is: {winner} <Confetti
-      width={width}
+      width={1500}
       height={height}
       gravity={0.2}
     />
    
      
 
-      <button  style={{borderRadius:50}}onClick={play}>Click Me❣️</button>
+      {/* <button  style={{borderRadius:50}}onClick={play}>Click Me❣️</button> */}
     </h2>:null}
   <Button onClick={restart}>Restart</Button>
   </div>

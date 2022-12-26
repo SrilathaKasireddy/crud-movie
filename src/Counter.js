@@ -12,7 +12,8 @@ export function Counter() {
   <div>
   <Button >
    <Badge className="like" badgeContent= {like}  color="primary"  >
-      <ThumbUpRoundedIcon style={{ fill: '#EFD126' }}   className="likebutton" onClick={() => setLike(like + 1)}/>
+      <ThumbUpRoundedIcon style={{ fill: '#EFD126' }}   className="likebutton" 
+      onClick={() => setLike(like + 1)}/>
     </Badge>
    </Button>
    <Button>

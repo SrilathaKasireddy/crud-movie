@@ -23,15 +23,18 @@ export function MovieDetails() {
     color: movie.ratingg > 8 ? 'green' : 'red'
   };
   return (
-    <div className="movieDetailsContainer">
+    <div className="movieDetailsContainer" 
+    
+    >
       <iframe
         width="100%"
-        height="835px"
+        height="100%"
         src={movie.trailerr}
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
+
       >
       </iframe>
       <div className="movieCredentialsContainer">
