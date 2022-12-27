@@ -179,7 +179,7 @@ function App() {
             <Toolbar className="toolBar">
               <div>
                 <Button color="inherit" onClick = {()=>
-                   navigate("/home")}>Home</Button>
+                   navigate("/")}>Home</Button>
                 
                 <Button color="inherit" onClick = {()=>
                    navigate("/movies")}>Movies</Button>
@@ -208,6 +208,7 @@ function App() {
           <Routes>
            
             <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             
             
             <Route path="/movies" 
