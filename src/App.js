@@ -3,6 +3,13 @@ import './App.css';
 
 import {createContext, useState} from "react";
 import {AddColor} from "./AddColor";
+
+import Login from "./components/Login";
+import { Register } from "./components/Register";
+import { ForgetPassword } from './components/ForgetPassword';
+import { ChangePassword } from "./components/ChangePassword";
+import { PasswordUpdated } from "./components/PasswordUpdated";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
 import { MovieAdditionForm } from './MovieAdditionForm';
 import Button from '@mui/material/Button';
@@ -18,11 +25,7 @@ import { Movies } from './Movies';
 import { EditMovie } from './EditMovie';
 import { BasicForm } from './Basicform';
 import SimpleImageSlider from "react-simple-image-slider";
-import { Register } from "./components/Register";
-import { ForgetPassword } from './components/ForgetPassword';
-import { ChangePassword } from "./components/ChangePassword";
-import { PasswordUpdated } from "./components/PasswordUpdated";
-import Login from "./components/Login";
+
 
 const images = [
   { url: "https://www.koimoi.com/wp-content/new-galleries/2022/01/netflix-shelves-bahubali-before-the-beginning-worth-150-crores-002.jpg" },
@@ -187,8 +190,8 @@ function App() {
                   navigate("/addmovies")}>Add Movies</Button>
                 {/* <Button color="inherit" onClick = {()=>
                    navigate("/addcolor")}>Color Game</Button> */}
-                <Button color="inherit" onClick = {()=>
-                   navigate("/tictactoe")}>TicTacToe</Button>
+                {/* <Button color="inherit" onClick = {()=>
+                   navigate("/tictactoe")}>TicTacToe</Button> */}
               </div>
               <div >
                 <Button 
@@ -216,7 +219,7 @@ function App() {
             <Route path="/addmovies"
             element={<MovieAdditionForm />}/>
             {/* <Route path="/addcolor" element={<AddColor />} /> */}
-            <Route path="/tictactoe" element={<TicTacToe/>} />
+            {/* <Route path="/tictactoe" element={<TicTacToe/>} /> */}
             <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/movies/edit/:id" 

@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 export default function Login() {
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
-  const entry = () => navigate("/Home");
+  const entry = () => navigate("/movies");
 
   const loginUser = (userDetail) => {
     fetch(`${API}/login`, {
